@@ -68,7 +68,29 @@ struct Nod* inserare(struct Nod* nod, int cheie){
     nod->dreapta=inserare(nod->dreapta,cheie);
     else
     return nod;
+if (cheie < nod->cheie)
+		nod->stanga = inserare(nod->stanga, cheie);
+	else if (cheie > nod->cheie)
+		nod->dreapta = inserare(nod->dreapta, cheie);
+	else
+		return nod;
 
+	nod->inaltime = 1 + maxim(inaltime(nod->stanga), inaltime(nod->dreapta));
+	int balanta = echilibru(nod);
+
+	if (balanta > 1 && cheie < nod->stanga->cheie)
+		return rotireDreapta(nod);
+	if (balanta < -1 && cheie > nod->dreapta->cheie)
+		return rotireStanga(nod);
+	if (balanta > 1 && cheie > nod->stanga->cheie) {
+		nod->stanga = rotireStanga(nod->stanga);
+		return rotireDreapta(nod);
+	}
+	if (balanta < -1 && cheie < nod->dreapta->cheie) {
+		nod->dreapta = rotireDreapta(nod->dreapta);
+		return rotireStanga(nod);
+	}
+	return nod;
     
 }
 
@@ -77,6 +99,7 @@ void populare(struct Nod** nod,int nr,int min,int max){
     srand(time(NULL));
     for(i=0;i<nr;i++){
         int val=rand() % (max-min +1) + min;
+        *nod=inserare(*nod,val);
     }
 }
 
