@@ -1,3 +1,8 @@
 *.log
 venv/
 input/*.xlsx
+.env
+node_modules/
+build/
+dist/
+desktop.ini
