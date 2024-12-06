@@ -66,8 +66,13 @@ int echilibru(struct Nod *nod){
 }
 
 struct Nod* inserare(struct Nod* nod, int cheie){
-     if(nod==NULL)
-     return 0;
+     if (nod == NULL) {
+     struct Nod *nou = (struct Nod *)malloc(sizeof(struct Nod));
+     nou->cheie = cheie;
+     nou->inaltime = 1;
+     nou->stanga = nou->dreapta = NULL;
+     return nou;
+	}
     
      if(cheie<nod->cheie)
      nod->stanga=inserare(nod->stanga,cheie);
@@ -110,7 +115,6 @@ void populare(struct Nod** nod,int nr,int min,int max){
         *nod=inserare(*nod,val);
       }
    }
-	free(vec);
 }
 
 void preordine(struct Nod* nod){
