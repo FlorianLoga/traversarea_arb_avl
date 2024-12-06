@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <time.h>
 
+#define MIN 1
+#define MAX 50
+
 struct Nod{
     int cheie;
     int inaltime;
@@ -114,7 +117,7 @@ void populare(struct Nod** nod,int nr,int min,int max){
 void preordine(struct Nod* nod){
     if(nod!=NULL){
 	printf("%d ",nod->cheie);
-	preordne(nod->stanga);
+	preordine(nod->stanga);
 	preordine(nod->dreapta);
    }
 }
