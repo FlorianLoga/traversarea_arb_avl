@@ -7,7 +7,7 @@ Am implementat proiectul in limbajul C pe Windows.Am dezvoltat codul sursa cu aj
 3. **Rezultate**
 Cele 4 traversari: preordine,inordin,postordine si peNivel functioneaza corect si returneaza ceea ce trebuie.
 4. **Modalitate de rulare**
-Dupa ce folositi docker pull <nume> veti utiliza docker run -it <nume> pentru a putea introduce numarul de elemente dorite
+Dupa ce folositi docker pull docker pull ghcr.io/florianloga/traversarea_arb_avl/traversarea_arb_avl:latest veti utiliza docker run -it docker pull ghcr.io/florianloga/traversarea_arb_avl/traversarea_arb_avl:latest pentru a putea introduce numarul de elemente dorite
 5. **Motivatia**
 Motivul pentru care am ales acest proiect este de a ma familiariza cu arborii de tip AVL deoarece m-am intalnit prima data cu acestia la materia *Analiza Algoritmilor*, astfel am avut un *head start* la proiect dar doresc si sa inteleg mai bine functionalitatea si implementarea lor.
 
