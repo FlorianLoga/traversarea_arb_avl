@@ -2,16 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-struct Nod
-{
+struct Nod{
     int cheie;
     int inaltime;
     struct Nod *stanga;
     struct Nod *dreapta;
 };
 
-int inaltime(struct Nod *nod)
-{
+int inaltime(struct Nod *nod){
     if (nod == NULL)
         return 0;
     return nod->inaltime;
@@ -23,8 +21,16 @@ int maxim(int a,int b){
     return b;
 }
 
-struct Nod *rotireStanga(struct Nod *x)
-{
+int unic(int* vec,int nr, int val){
+	int i;
+	for(i=0;i<nr;i++){
+		if(vec[i]==val)
+			return 0;
+	}
+	return 1;
+}
+
+struct Nod *rotireStanga(struct Nod *x){
     struct Nod *y = x->dreapta;
     struct Nod *SS = y->stanga;
 
@@ -37,8 +43,7 @@ struct Nod *rotireStanga(struct Nod *x)
     return y;
 }
 
-struct Nod *rotireDreapta(struct Nod *y)
-{
+struct Nod *rotireDreapta(struct Nod *y){
     struct Nod *x = y->stanga;
     struct Nod *SD = x->dreapta;
 
@@ -51,8 +56,7 @@ struct Nod *rotireDreapta(struct Nod *y)
     return x;
 }
 
-int echilibru(struct Nod *nod)
-{
+int echilibru(struct Nod *nod){
     if (nod == NULL)
         return 0;
     return inaltime(nod->stanga) - inaltime(nod->dreapta);
@@ -95,12 +99,16 @@ if (cheie < nod->cheie)
 }
 
 void populare(struct Nod** nod,int nr,int min,int max){
-    int i;
+    int i=0;
+    int *vec=(int*)malloc(nr * sizeof(int));
     srand(time(NULL));
-    for(i=0;i<nr;i++){
+    while(i<nr){
         int val=rand() % (max-min +1) + min;
+	if(unic(vec,i,val)){
+	vec[i++]=val;
         *nod=inserare(*nod,val);
-    }
+      }
+   }
 }
 
 void preordine(struct Nod* nod){
