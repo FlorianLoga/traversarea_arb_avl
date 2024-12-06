@@ -127,6 +127,27 @@ void postordine(struct Nod* nod){
 	}
 }
 
+void peNivel(struct Nod* nod){
+	if(nod==NULL){
+		printf("Arborele este gol");
+		return;
+	}
+	struct Nod** coada=(struct Nod*)malloc(100*sizeof(struct Nod));
+	int inceput=0,final=0;
+	coada[final++]=nod;
+
+	while(inceput<final){
+		struct Nod* curent=coada[inceput++];
+		printf("%d ",nod->cheie);
+
+		if(curent->stanga!=NULL)
+			coada[final++]=curent->stanga;
+		if(curent->dreapta!=NULL)
+			coada[final++]=curent->dreapta;
+	}
+	free(coada);
+}
+
 int main(){
 	struct Nod* nod=NULL;
 	int nr;
@@ -141,13 +162,18 @@ int main(){
 
 	printf("\n");
 
-	printf("Traversare inordine: \n");
+	printf("Traversarea inordine: \n");
 	inordine(nod);
 
 	printf("\n");
 
 	printf("Traversarea in postordne: \n");
 	postordine(nod);
+
+	printf("\n");
+
+	printf("Traversarea pe nivel: \n");
+	peNivel(nod);
 	
     return 0;
 }
