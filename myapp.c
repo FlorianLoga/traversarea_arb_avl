@@ -98,6 +98,10 @@ struct Nod* inserare(struct Nod* nod, int cheie){
 void populare(struct Nod** nod,int nr,int min,int max){
     int i=0;
     int *vec=(int*)malloc(nr * sizeof(int));
+	if(vec==NULL){
+		printf("Eroare la alocare dinamica!");
+		exit(0);
+	}
     srand(time(NULL));
     while(i<nr){
         int val=rand() % (max-min +1) + min;
@@ -106,6 +110,7 @@ void populare(struct Nod** nod,int nr,int min,int max){
         *nod=inserare(*nod,val);
       }
    }
+	free(vec);
 }
 
 void preordine(struct Nod* nod){
