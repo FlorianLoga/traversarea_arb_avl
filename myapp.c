@@ -103,9 +103,51 @@ void populare(struct Nod** nod,int nr,int min,int max){
     }
 }
 
+void preordine(struct Nod* nod){
+    if(nod!=NULL){
+	printf("%d ",nod->cheie);
+	preordne(nod->stanga);
+	preordine(nod->dreapta);
+   }
+}
+
+void inordine(struct Nod* nod){
+	if(nod!=NULL){
+		inordine(nod->stanga);
+		printf("%d ",nod->cheie);
+		inordine(nod->dreapta);
+	}
+}
+
+void postordine(struct Nod* nod){
+	if(nod!=NULL){
+		postordine(nod->stanga);
+		postordine(nod->dreapta);
+		printf("%d ",nod->cheie);
+	}
+}
+
 int main(){
+	struct Nod* nod=NULL;
+	int nr;
 
+	printf("Introduceti numarul de elemente: ");
+	scanf("%d",&nr);
 
+	populare(&nod,nr,MIN,MAX);
 
+	printf("Traversarea in preordine: \n");
+	preordine(nod);
+
+	printf("\n");
+
+	printf("Traversare inordine: \n");
+	inordine(nod);
+
+	printf("\n");
+
+	printf("Traversarea in postordne: \n");
+	postordine(nod);
+	
     return 0;
 }
