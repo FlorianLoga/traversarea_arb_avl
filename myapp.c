@@ -66,22 +66,16 @@ int echilibru(struct Nod *nod){
 }
 
 struct Nod* inserare(struct Nod* nod, int cheie){
-    if(nod==NULL)
-    return 0;
+     if(nod==NULL)
+     return 0;
     
-    if(cheie<nod->cheie)
-    nod->stanga=inserare(nod->stanga,cheie);
-    else if(cheie>nod->cheie)
-    nod->dreapta=inserare(nod->dreapta,cheie);
-    else
-    return nod;
-if (cheie < nod->cheie)
-		nod->stanga = inserare(nod->stanga, cheie);
-	else if (cheie > nod->cheie)
-		nod->dreapta = inserare(nod->dreapta, cheie);
-	else
-		return nod;
-
+     if(cheie<nod->cheie)
+     nod->stanga=inserare(nod->stanga,cheie);
+     else if(cheie>nod->cheie)
+     nod->dreapta=inserare(nod->dreapta,cheie);
+     else
+     return nod;
+	
 	nod->inaltime = 1 + maxim(inaltime(nod->stanga), inaltime(nod->dreapta));
 	int balanta = echilibru(nod);
 
