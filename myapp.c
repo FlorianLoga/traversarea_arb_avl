@@ -142,7 +142,7 @@ void peNivel(struct Nod* nod){
 		printf("Arborele este gol");
 		return;
 	}
-	struct Nod** coada=(struct Nod*)malloc(100*sizeof(struct Nod));
+	struct Nod** coada=(struct Nod**)malloc(100*sizeof(struct Nod));
 	int inceput=0,final=0;
 	coada[final++]=nod;
 
