@@ -152,7 +152,7 @@ void peNivel(struct Nod* nod){
 
 	while(inceput<final){
 		struct Nod* curent=coada[inceput++];
-		printf("%d ",nod->cheie);
+		printf("%d ",curent->cheie);
 
 		if(curent->stanga!=NULL)
 			coada[final++]=curent->stanga;
