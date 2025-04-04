@@ -9,7 +9,7 @@ Cele 4 traversari: preordine,inordine,postordine si peNivel functioneaza corect 
 4. **Modalitate de rulare**
 Dupa ce folositi  docker pull ghcr.io/florianloga/traversarea_arb_avl/traversarea_arb_avl:latest veti utiliza docker run -it ghcr.io/florianloga/traversarea_arb_avl/traversarea_arb_avl:latest pentru a putea introduce numarul de elemente dorite
 5. **Motivatia**
-Motivul pentru care am ales acest proiect este de a ma familiariza cu arborii de tip AVL deoarece m-am intalnit prima data cu acestia la materia *Analiza Algoritmilor*, si doresc sa inteleg mai bine functionalitatea si implementarea lor.
+Motivul pentru care am ales acest proiect este de a ma familiariza cu arborii de tip AVL si doresc sa inteleg mai bine functionalitatea si implementarea lor.
 
 ![image](https://github.com/user-attachments/assets/75d8117d-7073-45f9-81ec-70ceb5bdef77)
 
